@@ -1,0 +1,5 @@
+# Ignore additional course material
+course-material-v2.0/
+
+# Ignore DS file
+.DS_Store

@@ -26,7 +26,7 @@
 // console.log(percentageOfWorld2(83));
 // console.log(percentageOfWorld2(330));
 
-const percentageOfWorld3 = population => (population / 7900) * 100;
+// const percentageOfWorld3 = population => (population / 7900) * 100;
 // function percentageOfWorld3(population) {
 //   return (population / 7900) * 100;
 // }
@@ -63,12 +63,24 @@ const percentageOfWorld3 = population => (population / 7900) * 100;
 // checkWinner(avgDolphins, avgKoalas);
 //////////////////////////////////////////////////////
 
-const populations = [83, 330, 1440, 50];
-console.log(populations.length === 4);
-const percentages = new Array(
-  percentageOfWorld3(populations[0]),
-  percentageOfWorld3(populations[1]),
-  percentageOfWorld3(populations[2]),
-  percentageOfWorld3(populations[3])
-);
-console.log(percentages);
+// const populations = [83, 330, 1440, 50];
+// console.log(populations.length === 4);
+// const percentages = new Array(
+//   percentageOfWorld3(populations[0]),
+//   percentageOfWorld3(populations[1]),
+//   percentageOfWorld3(populations[2]),
+//   percentageOfWorld3(populations[3])
+// );
+// console.log(percentages);
+
+const neighbours = ["Austria", "Belgium", "France"];
+console.log(neighbours);
+neighbours.push("Utopia");
+console.log(neighbours);
+neighbours.pop();
+console.log(neighbours);
+if (!neighbours.includes("Germany")) {
+  console.log('Probably not a central European country :D');
+}
+neighbours[neighbours.indexOf("Austria")] = "Poland";
+console.log(neighbours);

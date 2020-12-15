@@ -87,11 +87,20 @@
 
 //////////////////////////////////////////////////////
 // Coding challenge #2
-const calcTip = value => value >= 50 && value <= 300 ? value * 0.15 : value * 0.2;
-const bills = [125, 555, 44];
-console.log(bills);
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
-console.log(tips);
-const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
-console.log(totals);
+// const calcTip = value => value >= 50 && value <= 300 ? value * 0.15 : value * 0.2;
+// const bills = [125, 555, 44];
+// console.log(bills);
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// console.log(tips);
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+// console.log(totals);
 //////////////////////////////////////////////////////
+
+const myCountry = {
+  country: "Germany",
+  capital: "Berlin",
+  language: "German",
+  population: 83,
+  neighbours: ["Austria", "Poland"]
+}
+console.log(myCountry);

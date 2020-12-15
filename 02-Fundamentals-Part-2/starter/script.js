@@ -26,7 +26,7 @@
 // console.log(percentageOfWorld2(83));
 // console.log(percentageOfWorld2(330));
 
-// const percentageOfWorld3 = population => (population / 7900) * 100;
+const percentageOfWorld3 = population => (population / 7900) * 100;
 // function percentageOfWorld3(population) {
 //   return (population / 7900) * 100;
 // }
@@ -45,20 +45,30 @@
 //////////////////////////////////////////////////////
 // Coding challenge #1
 
-const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+// const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 
-const avgDolphins = calcAverage(85, 54, 41);
-const avgKoalas = calcAverage(23, 34, 27);
+// const avgDolphins = calcAverage(85, 54, 41);
+// const avgKoalas = calcAverage(23, 34, 27);
 
-function checkWinner(avgDolphins, avgKoalas) {
-  if (avgDolphins >= 2 * avgKoalas) {
-    console.log(`Dolphins win (${avgDolphins} to ${avgKoalas})`);
-  } else if (avgKoalas >= 2 * avgDolphins) {
-    console.log(`Koalas win (${avgKoalas} to ${avgDolphins})`);
-  } else {
-    console.log(`No team wins (Dolphins: ${avgDolphins}, Koalas: ${avgKoalas})`);
-  }
-}
+// function checkWinner(avgDolphins, avgKoalas) {
+//   if (avgDolphins >= 2 * avgKoalas) {
+//     console.log(`Dolphins win (${avgDolphins} to ${avgKoalas})`);
+//   } else if (avgKoalas >= 2 * avgDolphins) {
+//     console.log(`Koalas win (${avgKoalas} to ${avgDolphins})`);
+//   } else {
+//     console.log(`No team wins (Dolphins: ${avgDolphins}, Koalas: ${avgKoalas})`);
+//   }
+// }
 
-checkWinner(avgDolphins, avgKoalas);
+// checkWinner(avgDolphins, avgKoalas);
 //////////////////////////////////////////////////////
+
+const populations = [83, 330, 1440, 50];
+console.log(populations.length === 4);
+const percentages = new Array(
+  percentageOfWorld3(populations[0]),
+  percentageOfWorld3(populations[1]),
+  percentageOfWorld3(populations[2]),
+  percentageOfWorld3(populations[3])
+);
+console.log(percentages);

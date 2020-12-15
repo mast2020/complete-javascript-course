@@ -103,4 +103,18 @@ const myCountry = {
   population: 83,
   neighbours: ["Austria", "Poland"]
 }
+// console.log(myCountry);
+
+// const jonas = {
+//   name: "Jonas",
+//   friends: ["Michael", "Ben", "Toni"]
+// }
+
+// console.log(`${jonas.name} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`)
+
+myCountry.population += 2;
+console.log(myCountry);
+myCountry["population"] -= 2;
 console.log(myCountry);

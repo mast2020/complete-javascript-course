@@ -18,7 +18,6 @@
 // console.log(percentageOfWorld1(83));
 // console.log(percentageOfWorld1(330));
 
-
 // const percentageOfWorld2 = function (population) {
 //   return (population / 7900) * 100;
 // }
@@ -228,7 +227,8 @@
 const bills = new Array(22, 295, 176, 440, 37, 105, 10, 1100, 86, 52);
 const tips = new Array();
 const totals = new Array();
-const calcTip = value => value >= 50 && value <= 300 ? value * 0.15 : value * 0.2;
+const calcTip = value =>
+  value >= 50 && value <= 300 ? value * 0.15 : value * 0.2;
 
 for (let i = 0; i < bills.length; i++) {
   tips.push(calcTip(bills[i]));
@@ -241,7 +241,7 @@ const calcAverage = arr => {
     sum += arr[i];
   }
   return sum / arr.length;
-}
+};
 
 console.log(tips);
 console.log(totals);

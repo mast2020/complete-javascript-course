@@ -162,29 +162,33 @@
 //////////////////////////////////////////////////////
 // Coding challenge #3
 
-const mark = {
-  fullName: "Mark Miller",
-  mass: 78,
-  height: 1.69,
-  calcBMI: function () {
-    this.BMI = this.mass / (this.height ** 2);
-    return this.BMI;
-  },
-}
+// const mark = {
+//   fullName: "Mark Miller",
+//   mass: 78,
+//   height: 1.69,
+//   calcBMI: function () {
+//     this.BMI = this.mass / (this.height ** 2);
+//     return this.BMI;
+//   },
+// }
 
-const john = {
-  fullName: "John Smith",
-  mass: 92,
-  height: 1.95,
-  calcBMI: function () {
-    this.BMI = this.mass / (this.height ** 2);
-    return this.BMI;
-  },
-}
+// const john = {
+//   fullName: "John Smith",
+//   mass: 92,
+//   height: 1.95,
+//   calcBMI: function () {
+//     this.BMI = this.mass / (this.height ** 2);
+//     return this.BMI;
+//   },
+// }
 
-if (mark.calcBMI() > john.calcBMI()) {
-  console.log(`Mark's BMI (${mark.BMI}) is higher than John's (${john.BMI})!`);
-} else {
-  console.log(`John's BMI (${john.BMI}) is higher than Mark's (${mark.BMI})!`);
-}
+// if (mark.calcBMI() > john.calcBMI()) {
+//   console.log(`Mark's BMI (${mark.BMI}) is higher than John's (${john.BMI})!`);
+// } else {
+//   console.log(`John's BMI (${john.BMI}) is higher than Mark's (${mark.BMI})!`);
+// }
 //////////////////////////////////////////////////////
+
+for (let i = 1; i <= 50; i++) {
+  console.log(`Voter number ${i} is currently voting`);
+}

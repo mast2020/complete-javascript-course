@@ -96,13 +96,13 @@
 // console.log(totals);
 //////////////////////////////////////////////////////
 
-const myCountry = {
-  country: "Germany",
-  capital: "Berlin",
-  language: "German",
-  population: 83,
-  neighbours: ["Austria", "Poland"]
-}
+// const myCountry = {
+//   country: "Germany",
+//   capital: "Berlin",
+//   language: "German",
+//   population: 83,
+//   neighbours: ["Austria", "Poland"]
+// }
 // console.log(myCountry);
 
 // const jonas = {
@@ -112,9 +112,49 @@ const myCountry = {
 
 // console.log(`${jonas.name} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
 
-console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`)
+// console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.`)
 
-myCountry.population += 2;
-console.log(myCountry);
-myCountry["population"] -= 2;
-console.log(myCountry);
+// myCountry.population += 2;
+// console.log(myCountry);
+// myCountry["population"] -= 2;
+// console.log(myCountry);
+
+// const jonas = {
+//   firstName: "Jonas",
+//   lastName: "Schmedtmann",
+//   birthYear: 1991,
+//   job: "teacher",
+//   friends: ["Michael", "Peter", "Steven"],
+//   hasDriversLicense: true,
+//   calcAge: function () {
+//     this.age = 2037 - this.birthYear;
+//     return this.age;
+//   },
+//   getSummary: function () {
+//     return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license.`
+//   },
+// }
+
+// const testArray = [1, 2];
+
+// console.log(jonas.getSummary());
+// console.log(typeof jonas);
+// console.log(typeof testArray);
+
+const myCountry = {
+  country: "Germany",
+  capital: "Berlin",
+  language: "German",
+  population: 83,
+  neighbours: ["Austria", "Poland"],
+  describe: function () {
+    console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`);
+  },
+  checkIsland: function () {
+    this.isIsland = this.neighbours.length === 0;
+    return this.isIsland;
+  },
+}
+
+myCountry.describe();
+console.log(myCountry.checkIsland());

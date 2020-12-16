@@ -211,13 +211,39 @@
 //   }
 // }
 
-const populations = [83, 330, 1440, 50];
-const percentageOfWorld3 = population => (population / 7900) * 100;
+// const populations = [83, 330, 1440, 50];
+// const percentageOfWorld3 = population => (population / 7900) * 100;
 
-const percentages3 = [];
-let i = 0;
-while (i < populations.length) {
-  percentages3.push(percentageOfWorld3(populations[i]));
-  i++;
+// const percentages3 = [];
+// let i = 0;
+// while (i < populations.length) {
+//   percentages3.push(percentageOfWorld3(populations[i]));
+//   i++;
+// }
+// console.log(percentages3);
+
+//////////////////////////////////////////////////////
+// Coding challenge #4
+
+const bills = new Array(22, 295, 176, 440, 37, 105, 10, 1100, 86, 52);
+const tips = new Array();
+const totals = new Array();
+const calcTip = value => value >= 50 && value <= 300 ? value * 0.15 : value * 0.2;
+
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+  totals.push(bills[i] + tips[i]);
 }
-console.log(percentages3);
+
+const calcAverage = arr => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
+
+console.log(tips);
+console.log(totals);
+console.log(calcAverage(totals));
+//////////////////////////////////////////////////////

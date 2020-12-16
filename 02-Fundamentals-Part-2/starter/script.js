@@ -189,6 +189,16 @@
 // }
 //////////////////////////////////////////////////////
 
-for (let i = 1; i <= 50; i++) {
-  console.log(`Voter number ${i} is currently voting`);
+// for (let i = 1; i <= 50; i++) {
+//   console.log(`Voter number ${i} is currently voting`);
+// }
+
+const populations = [83, 330, 1440, 50];
+const percentageOfWorld3 = population => (population / 7900) * 100;
+
+const percentages2 = [];
+for (i = 0; i < populations.length; i++) {
+  percentages2.push(percentageOfWorld3(populations[i]));
 }
+
+console.log(percentages2);

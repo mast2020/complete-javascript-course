@@ -141,20 +141,50 @@
 // console.log(typeof jonas);
 // console.log(typeof testArray);
 
-const myCountry = {
-  country: "Germany",
-  capital: "Berlin",
-  language: "German",
-  population: 83,
-  neighbours: ["Austria", "Poland"],
-  describe: function () {
-    console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`);
-  },
-  checkIsland: function () {
-    this.isIsland = this.neighbours.length === 0;
-    return this.isIsland;
+// const myCountry = {
+//   country: "Germany",
+//   capital: "Berlin",
+//   language: "German",
+//   population: 83,
+//   neighbours: ["Austria", "Poland"],
+//   describe: function () {
+//     console.log(`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`);
+//   },
+//   checkIsland: function () {
+//     this.isIsland = this.neighbours.length === 0;
+//     return this.isIsland;
+//   },
+// }
+
+// myCountry.describe();
+// console.log(myCountry.checkIsland());
+
+//////////////////////////////////////////////////////
+// Coding challenge #3
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.BMI = this.mass / (this.height ** 2);
+    return this.BMI;
   },
 }
 
-myCountry.describe();
-console.log(myCountry.checkIsland());
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.BMI = this.mass / (this.height ** 2);
+    return this.BMI;
+  },
+}
+
+if (mark.calcBMI() > john.calcBMI()) {
+  console.log(`Mark's BMI (${mark.BMI}) is higher than John's (${john.BMI})!`);
+} else {
+  console.log(`John's BMI (${john.BMI}) is higher than Mark's (${mark.BMI})!`);
+}
+//////////////////////////////////////////////////////

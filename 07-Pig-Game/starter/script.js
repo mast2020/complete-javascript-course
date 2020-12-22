@@ -49,7 +49,7 @@ const declareWinner = function () {
 
 // ---------------------------------------------------
 
-// Dice roll functionality
+// Dice roll functionality:
 btnRoll.addEventListener('click', function () {
   // Generate random dice roll
   const dice = Math.trunc(Math.random() * 6) + 1;
@@ -76,7 +76,7 @@ btnRoll.addEventListener('click', function () {
 
 // ---------------------------------------------------
 
-// Hold score functionality
+// Hold score functionality:
 btnHold.addEventListener('click', function () {
   // Add current score to total score
   scores[activePlayer] += currentScore;
@@ -99,7 +99,7 @@ btnHold.addEventListener('click', function () {
 
 // ---------------------------------------------------
 
-// New game functionality
+// New game functionality:
 btnNew.addEventListener('click', function () {
   // Set scores of both players to 0
   scores = [0, 0];

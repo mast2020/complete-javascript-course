@@ -83,31 +83,56 @@
 
 // --- THIS KEYWORD ---
 
-console.log(this);
+// console.log(this);
 
-const calcAge = function () {
-  console.log(this);
+// const calcAge = function () {
+//   console.log(this);
+// };
+// calcAge();
+
+// const calcAge2 = () => {
+//   console.log(this);
+// };
+// calcAge2();
+
+// const jonas = {
+//   name: 'Jonas',
+//   tellName: function () {
+//     console.log(this);
+//   },
+// };
+// jonas.tellName();
+
+// const matilda = {
+//   name: 'Matilda',
+//   tellName: jonas.tellName,
+// };
+// matilda.tellName();
+
+// const f = jonas.tellName;
+// f();
+
+// const jonas2 = {
+//   name: 'Jonas2',
+//   lastName: 'Test',
+//   tellName: function () {
+//     console.log(this);
+
+//     const isMillenial = function () {
+//       console.log(this);
+//     };
+//     isMillenial();
+//   },
+// };
+// jonas2.tellName();
+
+const addExpr = function (a, b) {
+  // console.log(arguments);
+
+  const addArrow = (c, d) => {
+    console.log([c, d]);
+    console.log(arguments);
+  };
+  addArrow(5, 6, 7);
 };
-calcAge();
-
-const calcAge2 = () => {
-  console.log(this);
-};
-calcAge2();
-
-const jonas = {
-  name: 'Jonas',
-  tellName: function () {
-    console.log(this);
-  },
-};
-jonas.tellName();
-
-const matilda = {
-  name: 'Matilda',
-  tellName: jonas.tellName,
-};
-matilda.tellName();
-
-const f = jonas.tellName;
-f();
+addExpr(2, 3, 4);

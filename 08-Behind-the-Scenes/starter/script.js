@@ -126,13 +126,48 @@
 // };
 // jonas2.tellName();
 
-const addExpr = function (a, b) {
-  // console.log(arguments);
+// const addExpr = function (a, b) {
+//   // console.log(arguments);
 
-  const addArrow = (c, d) => {
-    console.log([c, d]);
-    console.log(arguments);
-  };
-  addArrow(5, 6, 7);
+//   const addArrow = (c, d) => {
+//     console.log([c, d]);
+//     console.log(arguments);
+//   };
+//   addArrow(5, 6, 7);
+// };
+// addExpr(2, 3, 4);
+
+// --- PRIMITIVE VS. REFERENCE TYPES ---
+
+// Primitive types
+
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
 };
-addExpr(2, 3, 4);
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica.lastName);
+console.log('After marriage:', marriedJessica.lastName);
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Hans', 'Peter'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+jessicaCopy.family.push('Mary');
+console.log('Before marriage:', jessica2);
+console.log('After marriage:', jessicaCopy);

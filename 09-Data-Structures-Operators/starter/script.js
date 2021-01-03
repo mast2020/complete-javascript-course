@@ -75,6 +75,78 @@
 
 // --- CODING CHALLENGE 1 ---
 
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// Task 1:
+// const players1 = [...game.players[0]];
+// const players2 = [...game.players[1]];
+
+// Task 2:
+// const [gk, ...fieldPlayers] = players1;
+
+// Task 3:
+// const allPlayers = [...players1, ...players2];
+
+// Task 4:
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+
+// Task 5:
+// const { team1: team1, x: draw, team2: team2 } = game.odds;
+
+// Task 6:
+// const printGoals = function (...playerNames) {
+//   for (let i = 0; i < playerNames.length; i++) {
+//     console.log(playerNames[i]);
+//   }
+//   console.log(`Total number of goals: ${playerNames.length}`);
+// };
+
+// printGoals(...game.scored);
+
+// Task 7:
+// console.log((team1 < team2 && 'team1') || 'team2');
+
+// --- CODING CHALLENGE 2 ---
+
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -116,31 +188,29 @@ const game = {
   },
 };
 
-// Task 1:
-const players1 = [...game.players[0]];
-const players2 = [...game.players[1]];
+// Task 1
+for (const [number, player] of game.scored.entries()) {
+  console.log(`Goal ${number + 1}: ${player}`);
+}
 
-// Task 2:
-const [gk, ...fieldPlayers] = players1;
+// Task 2
+let sumOfOdds = 0;
+for (const odd of Object.values(game.odds)) {
+  sumOfOdds += odd;
+}
+const averageOdd = sumOfOdds / Object.values(game.odds).length;
+console.log(averageOdd);
 
-// Task 3:
-const allPlayers = [...players1, ...players2];
+// Task 3
+for (const [team, odd] of Object.entries(game.odds)) {
+  console.log(
+    `Odd of ${game[team] ? 'victory ' + game[team] : 'draw'}: ${odd}`
+  );
+}
 
-// Task 4:
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-
-// Task 5:
-const { team1: team1, x: draw, team2: team2 } = game.odds;
-
-// Task 6:
-const printGoals = function (...playerNames) {
-  for (let i = 0; i < playerNames.length; i++) {
-    console.log(playerNames[i]);
-  }
-  console.log(`Total number of goals: ${playerNames.length}`);
-};
-
-printGoals(...game.scored);
-
-// Task 7:
-console.log((team1 < team2 && 'team1') || 'team2');
+// Task 4
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? (scorers[player] += 1) : (scorers[player] = 1);
+}
+console.log(scorers);

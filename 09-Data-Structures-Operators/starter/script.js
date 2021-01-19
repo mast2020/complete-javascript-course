@@ -147,70 +147,110 @@
 
 // --- CODING CHALLENGE 2 ---
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// // Task 1
+// for (const [number, player] of game.scored.entries()) {
+//   console.log(`Goal ${number + 1}: ${player}`);
+// }
+
+// // Task 2
+// let sumOfOdds = 0;
+// for (const odd of Object.values(game.odds)) {
+//   sumOfOdds += odd;
+// }
+// const averageOdd = sumOfOdds / Object.values(game.odds).length;
+// console.log(averageOdd);
+
+// // Task 3
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   console.log(
+//     `Odd of ${game[team] ? 'victory ' + game[team] : 'draw'}: ${odd}`
+//   );
+// }
+
+// // Task 4
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? (scorers[player] += 1) : (scorers[player] = 1);
+// }
+// console.log(scorers);
+
+// --- CODING CHALLENGE 3 ---
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
 
 // Task 1
-for (const [number, player] of game.scored.entries()) {
-  console.log(`Goal ${number + 1}: ${player}`);
-}
+const events = [...new Set(gameEvents.values())];
+console.log(events);
 
 // Task 2
-let sumOfOdds = 0;
-for (const odd of Object.values(game.odds)) {
-  sumOfOdds += odd;
-}
-const averageOdd = sumOfOdds / Object.values(game.odds).length;
-console.log(averageOdd);
+gameEvents.delete(64);
+console.log(gameEvents);
 
 // Task 3
-for (const [team, odd] of Object.entries(game.odds)) {
-  console.log(
-    `Odd of ${game[team] ? 'victory ' + game[team] : 'draw'}: ${odd}`
-  );
+const minutesArray = [...gameEvents.keys()];
+let sum = minutesArray[0];
+for (let i = 1; i < minutesArray.length; i++) {
+  sum += minutesArray[i] - minutesArray[i - 1];
 }
+const average = sum / minutesArray.length;
+console.log(`An event happened, on average, every ${average} minutes`);
 
 // Task 4
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? (scorers[player] += 1) : (scorers[player] = 1);
+for (const [minute, event] of gameEvents) {
+  console.log(
+    `${minute <= 45 ? '[FIRST HALF]' : '[SECOND HALF]'} ${minute}: ${event}`
+  );
 }
-console.log(scorers);

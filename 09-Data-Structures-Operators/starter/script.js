@@ -217,40 +217,71 @@
 
 // --- CODING CHALLENGE 3 ---
 
-const gameEvents = new Map([
-  [17, '⚽️ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽️ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽️ GOAL'],
-  [80, '⚽️ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-// Task 1
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// // Task 1
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-// Task 2
-gameEvents.delete(64);
-console.log(gameEvents);
+// // Task 2
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-// Task 3
-const minutesArray = [...gameEvents.keys()];
-let sum = minutesArray[0];
-for (let i = 1; i < minutesArray.length; i++) {
-  sum += minutesArray[i] - minutesArray[i - 1];
-}
-const average = sum / minutesArray.length;
-console.log(`An event happened, on average, every ${average} minutes`);
+// // Task 3
+// const minutesArray = [...gameEvents.keys()];
+// let sum = minutesArray[0];
+// for (let i = 1; i < minutesArray.length; i++) {
+//   sum += minutesArray[i] - minutesArray[i - 1];
+// }
+// const average = sum / minutesArray.length;
+// console.log(`An event happened, on average, every ${average} minutes`);
 
-// Task 4
-for (const [minute, event] of gameEvents) {
-  console.log(
-    `${minute <= 45 ? '[FIRST HALF]' : '[SECOND HALF]'} ${minute}: ${event}`
-  );
-}
+// // Task 4
+// for (const [minute, event] of gameEvents) {
+//   console.log(
+//     `${minute <= 45 ? '[FIRST HALF]' : '[SECOND HALF]'} ${minute}: ${event}`
+//   );
+// }
+
+// --- CODING CHALLENGE 4 ---
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+// 1. Select button and text area
+const button = document.querySelector('button');
+const textAreaContent = document.querySelector('textarea');
+
+// 2. When button is clicked, store info in textarea in variable
+button.addEventListener('click', function () {
+  const inputString = textAreaContent.value;
+  const arrayOfLines = inputString.split('\n');
+
+  for (let i = 0; i < arrayOfLines.length; i++) {
+    // 3. Convert text in text area: trim, lowerCase, replace _X with _x, replace _ with ''
+    const n = arrayOfLines[i];
+    const cleanString = n
+      .trim()
+      .toLowerCase()
+      .replace(
+        '_' + n[n.indexOf('_') + 1].toLowerCase(),
+        '_' + n[n.indexOf('_') + 1].toUpperCase()
+      )
+      .replace('_', '');
+
+    // 4. Log converted text
+    console.log(cleanString.padEnd(20, ' ') + '✅'.repeat(i + 1));
+  }
+});

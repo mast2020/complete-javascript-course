@@ -75,20 +75,42 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-// CODING CHALLENGE 1
+// // CODING CHALLENGE 1
 
-const checkDogs = function (dogsJulia, dogsKate) {
-  const dogsJuliaCopy = dogsJulia.slice(1, -2);
-  const mergedArray = dogsJuliaCopy.concat(dogsKate);
-  mergedArray.forEach(function (age, index) {
-    console.log(
-      age < 3
-        ? `Dog number ${index + 1} is still a puppy`
-        : `Dog number ${index + 1} is an adult, and is ${age} years old`
-    );
-  });
+// const checkDogs = function (dogsJulia, dogsKate) {
+//   const dogsJuliaCopy = dogsJulia.slice(1, -2);
+//   const mergedArray = dogsJuliaCopy.concat(dogsKate);
+//   mergedArray.forEach(function (age, index) {
+//     console.log(
+//       age < 3
+//         ? `Dog number ${index + 1} is still a puppy`
+//         : `Dog number ${index + 1} is an adult, and is ${age} years old`
+//     );
+//   });
+// };
+
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// console.log('----------');
+// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+// CODING CHALLENGE 2
+
+// const calcAverageHumanAge = function (ages) {
+//   const humanAges = ages.map(dogAge =>
+//     dogAge > 2 ? 16 + dogAge * 4 : dogAge * 2
+//   );
+//   const adultDogs = humanAges.filter(humanAge => humanAge >= 18);
+//   const averageAge =
+//     adultDogs.reduce((acc, humanAge) => acc + humanAge) / adultDogs.length;
+//   return averageAge;
+// };
+
+const calcAverageHumanAge = function (ages) {
+  return ages
+    .map(dogAge => (dogAge > 2 ? 16 + dogAge * 4 : dogAge * 2))
+    .filter(humanAge => humanAge >= 18)
+    .reduce((acc, humanAge, _, array) => acc + humanAge / array.length, 0);
 };
 
-checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
-console.log('----------');
-checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));

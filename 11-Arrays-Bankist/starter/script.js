@@ -105,12 +105,23 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   return averageAge;
 // };
 
-const calcAverageHumanAge = function (ages) {
-  return ages
+// const calcAverageHumanAge = function (ages) {
+//   return ages
+//     .map(dogAge => (dogAge > 2 ? 16 + dogAge * 4 : dogAge * 2))
+//     .filter(humanAge => humanAge >= 18)
+//     .reduce((acc, humanAge, _, array) => acc + humanAge / array.length, 0);
+// };
+
+// console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+// console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+// CODING CHALLENGE 3
+
+const calcAverageHumanAge = ages =>
+  ages
     .map(dogAge => (dogAge > 2 ? 16 + dogAge * 4 : dogAge * 2))
     .filter(humanAge => humanAge >= 18)
     .reduce((acc, humanAge, _, array) => acc + humanAge / array.length, 0);
-};
 
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));

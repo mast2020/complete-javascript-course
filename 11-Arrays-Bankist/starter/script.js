@@ -117,11 +117,93 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // CODING CHALLENGE 3
 
-const calcAverageHumanAge = ages =>
-  ages
-    .map(dogAge => (dogAge > 2 ? 16 + dogAge * 4 : dogAge * 2))
-    .filter(humanAge => humanAge >= 18)
-    .reduce((acc, humanAge, _, array) => acc + humanAge / array.length, 0);
+// const calcAverageHumanAge = ages =>
+//   ages
+//     .map(dogAge => (dogAge > 2 ? 16 + dogAge * 4 : dogAge * 2))
+//     .filter(humanAge => humanAge >= 18)
+//     .reduce((acc, humanAge, _, array) => acc + humanAge / array.length, 0);
 
-console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
-console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+// console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+// console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+// CODING CHALLENGE 4
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+// Ex1
+dogs.forEach(dog => {
+  dog.recommendedFood = dog.weight ** 0.75 * 28;
+});
+
+console.log(dogs);
+
+// Ex2
+const dogSarah = dogs.find(dog => {
+  return dog.owners.includes('Sarah');
+});
+
+if (dogSarah.curFood < dogSarah.recommendedFood) {
+  console.log('Eating too little amount');
+} else if (dogSarah.curFood > dogSarah.recommendedFood) {
+  console.log('Eating too large amount');
+}
+
+// Ex3
+const [ownersEatTooLittle, ownersEatTooMuch] = dogs.reduce(
+  (acc, curr) => {
+    if (curr.curFood < curr.recommendedFood) {
+      acc[0].push(...curr.owners);
+    } else if (curr.curFood > curr.recommendedFood) {
+      acc[1].push(...curr.owners);
+    }
+    return acc;
+  },
+  [[], []]
+);
+
+console.log(ownersEatTooLittle, ownersEatTooMuch);
+
+// Ex4
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`);
+
+// Ex5
+const dogsWithExactAmount = dogs.some(
+  dog => dog.curFood === dog.recommendedFood
+);
+
+console.log(
+  dogsWithExactAmount
+    ? 'There is/ are dog(s) eating exactly right food amount'
+    : 'There are no dogs eating exactly right food amount'
+);
+
+// Ex6
+const checkEatingOkay = dog =>
+  dog.curFood > dog.recommendedFood * 0.9 &&
+  dog.curFood < dog.recommendedFood * 1.1;
+
+const dogsWithOkayAmount = dogs.some(checkEatingOkay);
+
+console.log(
+  dogsWithOkayAmount
+    ? 'There is/ are dog(s) eating okay food amount'
+    : 'There are no dogs eating okay food amount'
+);
+
+// Ex7
+const dogsWithOkayAmountArray = dogs.filter(checkEatingOkay);
+
+console.log(dogsWithOkayAmountArray);
+
+// Ex8
+const dogsCopy = [...dogs].sort((dogA, dogB) => {
+  return dogA.recommendedFood - dogB.recommendedFood;
+});
+
+console.log(dogsCopy);
